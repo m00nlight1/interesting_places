@@ -18,7 +18,7 @@ abstract class AppThemeData {
       iconTheme: IconThemeData(color: _lightColorTheme.icon),
       titleTextStyle: _textTheme.titleLarge,
     ),
-    dialogTheme: DividerThemeData(color: _lightColorTheme.divider),
+    dividerTheme: DividerThemeData(color: _lightColorTheme.divider),
     sliderTheme: SliderThemeData(
       trackHeight: 2,
       activeTrackColor: _lightColorTheme.accent,

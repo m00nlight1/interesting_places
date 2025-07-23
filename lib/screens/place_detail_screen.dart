@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interesting_places/models/place.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
+import 'package:interesting_places/widgets/herat_animated_widget.dart';
 import 'package:interesting_places/widgets/place_detail_content_widget.dart';
 import 'package:interesting_places/widgets/place_detail_photo_slider_widget.dart';
 
@@ -22,7 +23,7 @@ class PlaceDetailScreen extends StatefulWidget {
 class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
   late bool _isFavorite;
 
-  // final _heartAnimationKey = GlobalKey<HeartAnimationWidgetState>();
+  final _heartAnimationKey = GlobalKey<HeartAnimatedWidgetState>();
 
   @override
   void initState() {
@@ -34,7 +35,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
     final newFavoriteState = !_isFavorite;
 
     if (newFavoriteState) {
-      // _heartAnimationKey.currentState?.animate();
+      _heartAnimationKey.currentState?.animate();
     }
     setState(() {
       _isFavorite = newFavoriteState;
@@ -100,8 +101,7 @@ class _PlaceDetailScreenState extends State<PlaceDetailScreen> {
               ),
             ],
           ),
-          // todo: add widget
-          // HeartAnimatedWidget(key: _heartAnimationKey),
+          HeartAnimatedWidget(key: _heartAnimationKey),
         ],
       ),
     );
