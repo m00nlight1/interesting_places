@@ -2,28 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:interesting_places/models/place.dart';
 import 'package:interesting_places/widgets/place_card_widget.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class PlacesScreen extends StatelessWidget {
+  final List<Place> places;
+
+  const PlacesScreen({super.key, required this.places});
 
   @override
   Widget build(BuildContext context) {
-    const mockPlace = Place(
-      name: 'Эрмитаж',
-      description:
-          'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-      type: 'музей',
-      images: [
-        'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      ],
-    );
-
     return Scaffold(
       appBar: AppBar(title: const Text('Interesting Places')),
-      body: Padding(
+      body: ListView.separated(
         padding: const EdgeInsets.all(16),
-        child: Center(
-          child: PlaceCardWidget(
-            place: mockPlace,
+        itemCount: places.length,
+        itemBuilder: (context, index) {
+          final place = places[index];
+          return PlaceCardWidget(
+            place: place,
             onCardTap: () {
               ScaffoldMessenger.of(
                 context,
@@ -34,8 +28,9 @@ class HomeScreen extends StatelessWidget {
                 context,
               ).showSnackBar(const SnackBar(content: Text('Тап по лайку')));
             },
-          ),
-        ),
+          );
+        },
+        separatorBuilder: (_, __) => const SizedBox(height: 16),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
