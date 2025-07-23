@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interesting_places/models/place.dart';
-import 'package:interesting_places/widgets/place_card_widget.dart';
+import 'package:interesting_places/common/models/place.dart';
+import 'package:interesting_places/features/places/ui/widgets/place_card_widget.dart';
 
 class PlacesScreen extends StatelessWidget {
   final List<Place> places;
