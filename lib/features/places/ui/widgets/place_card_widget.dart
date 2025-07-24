@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interesting_places/common/models/place.dart';
+import 'package:interesting_places/features/common/models/place.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 
@@ -9,6 +9,7 @@ class PlaceCardWidget extends StatelessWidget {
   final Place place;
   final VoidCallback onCardTap;
   final VoidCallback onLikeTap;
+  final bool isFavorite;
   final PlaceCardType cardType;
 
   const PlaceCardWidget({
@@ -16,6 +17,7 @@ class PlaceCardWidget extends StatelessWidget {
     required this.place,
     required this.onCardTap,
     required this.onLikeTap,
+    required this.isFavorite,
     this.cardType = PlaceCardType.place,
   });
 
@@ -48,7 +50,7 @@ class PlaceCardWidget extends StatelessWidget {
                         fit: BoxFit.cover,
                         errorBuilder:
                             (_, __, ___) =>
-                                Container(color: Colors.grey.shade300),
+                                Container(color: colorTheme.imagePlaceholder),
                       ),
                     ),
                     Positioned(
@@ -101,7 +103,10 @@ class PlaceCardWidget extends StatelessWidget {
               child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: onLikeTap,
-                child: Icon(Icons.favorite_border, color: colorTheme.primary),
+                child: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: isFavorite ? colorTheme.error : colorTheme.primary,
+                ),
               ),
             ),
           ],

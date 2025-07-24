@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interesting_places/common/utils/media_query_extensions.dart';
+import 'package:interesting_places/features/common/utils/media_query_extensions.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 
 class PlaceDetailPhotoSliderWidget extends StatelessWidget {
