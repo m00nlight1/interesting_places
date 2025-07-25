@@ -43,3 +43,26 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Gradles
+.gradle/
+/android/local.properties
+/android/key.properties
+/android/.gradle
+/android/app/build
+/android/build
+
+# Cocoapods
+/ios/Pods/
+/ios/Podfile.lock
+/ios/.symlinks/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+
+# Web
+/web/build/
+/web/.dart_tool/
+
+# Generated files
+lib/api/data/*.g.dart
+lib/api/service/*.g.dart
