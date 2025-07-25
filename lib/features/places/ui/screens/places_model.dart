@@ -1,84 +1,85 @@
 import 'package:flutter/foundation.dart';
-import 'package:interesting_places/features/common/models/place.dart';
+import 'package:interesting_places/core/domain/entities/result/result.dart';
+import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
+import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
+import 'package:interesting_places/features/places/domain/enities/liked_place_entity.dart';
+import 'package:interesting_places/features/places/domain/enities/places_state.dart';
+import 'package:interesting_places/features/places/domain/repositories/i_places_repository.dart';
 
 class PlacesModel implements IPlacesModel {
-  final _placesState = ValueNotifier<List<Place>>(_mockPlaces);
+  final IPlacesRepository _placesRepository;
+  final IFavoritesRepository _favoritesRepository;
+
+  PlacesModel({
+    required IPlacesRepository placesRepository,
+    required IFavoritesRepository favoritesRepository,
+  }) : _placesRepository = placesRepository,
+       _favoritesRepository = favoritesRepository {
+    // listen to favorites changes to update state.
+    _favoritesRepository.favoritesListenable.addListener(_onFavoritesChanged);
+  }
+
+  final _placesState = ValueNotifier<PlacesState>(const PlacesStateLoading());
+
+  List<PlaceEntity>? _cachedRemotePlaces;
 
   @override
-  void dispose() => _placesState.dispose();
+  ValueListenable<PlacesState> get placesStateListenable => _placesState;
 
   @override
-  Future<void> getPlaces() async {
-    // Здесь можно добавить задержку или имитацию загрузки
-    _placesState.value = _mockPlaces;
+  void dispose() {
+    _favoritesRepository.favoritesListenable.removeListener(
+      _onFavoritesChanged,
+    );
+    _placesState.dispose();
   }
 
   @override
-  ValueListenable<List<Place>> get placesStateListenable => _placesState;
+  Future<void> getPlaces() async {
+    _placesState.value = const PlacesStateLoading();
+    final placesResult = await _placesRepository.getPlaces();
+    switch (placesResult) {
+      case ResultOk(:final data):
+        _cachedRemotePlaces = data;
+        _updateCombinedPlaces();
+      case ResultFailed(:final error):
+        _placesState.value = PlacesStateFailure(error);
+    }
+  }
+
+  void _onFavoritesChanged() {
+    _updateCombinedPlaces();
+  }
+
+  void _updateCombinedPlaces() {
+    final remote = _cachedRemotePlaces;
+    if (remote == null) return;
+
+    final favorites = _favoritesRepository.favoritesListenable.value;
+    final combined =
+        remote
+            .map(
+              (place) => LikedPlaceEntity(
+                place: place,
+                isFavorite: favorites.any((f) => f.name == place.name),
+              ),
+            )
+            .toList();
+
+    _placesState.value = PlacesStateData(combined);
+  }
+
+  @override
+  ValueListenable<List<PlaceEntity>> get favoritesPlaces =>
+      _favoritesRepository.favoritesListenable;
 }
 
-abstract interface class IPlacesModel {
-  ValueListenable<List<Place>> get placesStateListenable;
+abstract class IPlacesModel {
+  ValueListenable<PlacesState> get placesStateListenable;
+
+  ValueListenable<List<PlaceEntity>> get favoritesPlaces;
 
   void dispose();
 
   Future<void> getPlaces();
 }
-
-final _mockPlaces = [
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-  Place(
-    name: 'Эрмитаж',
-    description:
-        'Один из крупнейших художественных музеев мира, расположен в Санкт-Петербурге.',
-    type: 'музей',
-    images: [
-      'https://images.unsplash.com/photo-1617401040498-50a842f9246b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    ],
-  ),
-];
