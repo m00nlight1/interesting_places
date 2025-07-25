@@ -1,16 +1,16 @@
 import 'package:flutter/foundation.dart';
-import 'package:interesting_places/features/common/models/place.dart';
+import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 
 abstract interface class IFavoritesRepository {
-  ValueListenable<List<Place>> get favoritesListenable;
+  ValueListenable<List<PlaceEntity>> get favoritesListenable;
 
   Future<void> fetchFavorites();
 
   void dispose();
 
-  void toggleFavorite(Place place);
+  void toggleFavorite(PlaceEntity place);
 
-  void removeFavorite(Place place);
+  void removeFavorite(PlaceEntity place);
 
-  bool isFavorite(Place place);
+  bool isFavorite(PlaceEntity place);
 }
