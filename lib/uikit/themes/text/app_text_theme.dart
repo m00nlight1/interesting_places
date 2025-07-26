@@ -11,19 +11,22 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
   final TextStyle bodySmall;
   final TextStyle bodyMedium;
   final TextStyle labelSmall;
+  final TextStyle labelMedium;
 
   const AppTextTheme._({
     required this.titleLarge,
     required this.bodySmall,
     required this.bodyMedium,
     required this.labelSmall,
+    required this.labelMedium,
   });
 
   AppTextTheme.base()
     : titleLarge = AppTextStyle.titleLarge.value,
       bodySmall = AppTextStyle.bodySmall.value,
       bodyMedium = AppTextStyle.bodyMedium.value,
-      labelSmall = AppTextStyle.labelSmall.value;
+      labelSmall = AppTextStyle.labelSmall.value,
+      labelMedium = AppTextStyle.labelMedium.value;
 
   @override
   ThemeExtension<AppTextTheme> copyWith({
@@ -31,12 +34,14 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
     TextStyle? bodySmall,
     TextStyle? bodyMedium,
     TextStyle? labelSmall,
+    TextStyle? labelMedium,
   }) {
     return AppTextTheme._(
       titleLarge: titleLarge ?? this.titleLarge,
       bodySmall: bodySmall ?? this.bodySmall,
       bodyMedium: bodyMedium ?? this.bodyMedium,
       labelSmall: labelSmall ?? this.labelSmall,
+      labelMedium: labelMedium ?? this.labelMedium,
     );
   }
 
@@ -52,6 +57,7 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
       bodySmall: TextStyle.lerp(bodySmall, other.bodySmall, t)!,
       bodyMedium: TextStyle.lerp(bodyMedium, other.bodyMedium, t)!,
       labelSmall: TextStyle.lerp(labelSmall, other.labelSmall, t)!,
+      labelMedium: TextStyle.lerp(labelMedium, other.labelMedium, t)!,
     );
   }
 }

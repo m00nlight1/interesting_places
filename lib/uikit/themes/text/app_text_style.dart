@@ -34,6 +34,15 @@ enum AppTextStyle {
       height: 1.125,
       fontFamily: _fontFamily,
     ),
+  ),
+  labelMedium(
+    TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      letterSpacing: 0.3,
+      height: 1.29,
+      fontFamily: _fontFamily,
+    ),
   );
 
   final TextStyle value;

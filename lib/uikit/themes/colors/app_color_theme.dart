@@ -13,6 +13,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color divider;
   final Color accent;
   final Color inactive;
+  final Color inactiveVariant;
   final Color imagePlaceholder;
   final Color textPrimary;
   final Color textSecondary;
@@ -25,6 +26,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.divider,
     required this.accent,
     required this.inactive,
+    required this.inactiveVariant,
     required this.imagePlaceholder,
     required this.textPrimary,
     required this.textSecondary,
@@ -35,14 +37,15 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   const AppColorTheme.light()
     : primary = AppColors.colorWhite,
       icon = AppColors.colorBlack,
-      divider = AppColors.colorGrey,
-      accent = AppColors.colorGreenAccent,
-      inactive = AppColors.colorGrey300,
-      imagePlaceholder = AppColors.colorGrey300,
-      textPrimary = AppColors.colorBlack,
-      textSecondary = AppColors.colorBlack54,
+      divider = AppColors.colorInactiveBlack,
+      accent = AppColors.colorWhiteGreen,
+      inactive = AppColors.colorInactiveBlack,
+      inactiveVariant = AppColors.colorBackground,
+      imagePlaceholder = AppColors.colorBackground,
+      textPrimary = AppColors.colorWhiteMain,
+      textSecondary = AppColors.colorSecondary,
       buttonBackground = AppColors.colorWhite,
-      error = AppColors.colorRed;
+      error = AppColors.colorWhiteError;
 
   @override
   ThemeExtension<AppColorTheme> copyWith({
@@ -51,6 +54,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? divider,
     Color? accent,
     Color? inactive,
+    Color? inactiveVariant,
     Color? imagePlaceholder,
     Color? textPrimary,
     Color? textSecondary,
@@ -63,6 +67,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       divider: divider ?? this.divider,
       accent: accent ?? this.accent,
       inactive: inactive ?? this.inactive,
+      inactiveVariant: inactiveVariant ?? this.inactiveVariant,
       imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
@@ -84,6 +89,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       divider: Color.lerp(divider, other.divider, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       inactive: Color.lerp(inactive, other.inactive, t)!,
+      inactiveVariant: Color.lerp(inactiveVariant, other.inactiveVariant, t)!,
       imagePlaceholder:
           Color.lerp(imagePlaceholder, other.imagePlaceholder, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
