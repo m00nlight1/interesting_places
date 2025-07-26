@@ -1,24 +1,33 @@
-import 'package:flutter/foundation.dart';
+import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
+import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 
 class PlaceDetailModel implements IPlaceDetailModel {
-  final _state = ValueNotifier<String>('Loading');
+  final IFavoritesRepository _favoritesRepository;
+  final PlaceEntity _placeEntity;
+
+  PlaceDetailModel({
+    required PlaceEntity placeEntity,
+    required IFavoritesRepository favoritesRepository,
+  }) : _favoritesRepository = favoritesRepository,
+       _placeEntity = placeEntity;
 
   @override
-  void dispose() => _state.dispose();
+  bool isFavorite() => _favoritesRepository.isFavorite(_placeEntity);
 
   @override
-  Future<void> fetchDetail() async {
-    _state.value = 'Loaded';
+  PlaceEntity get placeEntity => _placeEntity;
+
+  @override
+  bool toggleFavorite() {
+    _favoritesRepository.toggleFavorite(_placeEntity);
+    return isFavorite();
   }
-
-  @override
-  ValueListenable<String> get stateListenable => _state;
 }
 
 abstract interface class IPlaceDetailModel {
-  ValueListenable<String> get stateListenable;
+  PlaceEntity get placeEntity;
 
-  void dispose();
+  bool isFavorite();
 
-  Future<void> fetchDetail();
+  bool toggleFavorite();
 }
