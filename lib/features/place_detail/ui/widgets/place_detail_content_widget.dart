@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:interesting_places/features/common/models/place.dart';
+import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 
 class PlaceDetailContentWidget extends StatelessWidget {
-  final Place place;
+  final PlaceEntity place;
 
   const PlaceDetailContentWidget({super.key, required this.place});
 
@@ -24,7 +24,7 @@ class PlaceDetailContentWidget extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 2),
-        Text(place.type.toLowerCase(), style: textTheme.labelSmall),
+        Text(place.placeType.name.toLowerCase(), style: textTheme.labelSmall),
         const SizedBox(height: 24),
         Text(
           place.description,
