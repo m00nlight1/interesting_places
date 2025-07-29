@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/assets/images/app_svg_icons.dart';
 import 'package:interesting_places/features/places/ui/screens/places_screen_builder.dart';
+import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -13,6 +15,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Widget> _pages = [
     const PlacesScreenBuilder(),
+    const Center(child: Text('Карта (заглушка)')),
     const Center(child: Text('Избранное (заглушка)')),
     const Center(child: Text('Настройки (заглушка)')),
   ];
@@ -28,22 +31,29 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
-        items: const [
-          // todo: переписать icon/activeIcon с SvgPictureWidget
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.place_outlined),
-            // activeIcon: SvgPictureWidget('assets/icons/list_full.svg'),
-            label: 'Места',
+            icon: SvgPictureWidget(AppSvgIcons.icList),
+            activeIcon: SvgPictureWidget(AppSvgIcons.icListFull),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: 'Избранное',
+            icon: SvgPictureWidget(AppSvgIcons.icMap),
+            activeIcon: SvgPictureWidget(AppSvgIcons.icMapFull),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            label: 'Настройки',
+            icon: SvgPictureWidget(AppSvgIcons.icHeart),
+            activeIcon: SvgPictureWidget(AppSvgIcons.icHeartFull),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPictureWidget(AppSvgIcons.icSettings),
+            activeIcon: SvgPictureWidget(AppSvgIcons.icSettingsFull),
+            label: '',
           ),
         ],
       ),
