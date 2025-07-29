@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interesting_places/features/places/domain/enities/places_state.dart';
 import 'package:interesting_places/features/places/ui/screens/places_wm.dart';
 import 'package:interesting_places/features/places/ui/widgets/place_card_widget.dart';
+import 'package:interesting_places/uikit/loading/skeleton.dart';
 
 class PlacesScreen extends StatelessWidget {
   final IPlacesWM wm;
@@ -27,9 +28,16 @@ class PlacesScreen extends StatelessWidget {
             body: RefreshIndicator.adaptive(
               onRefresh: wm.loadPlaces,
               child: switch (places) {
-                PlacesStateLoading() => Center(
-                  child: Text('Загрузка...'),
-                ), // todo: add strings
+                PlacesStateLoading() => ListView.separated(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: 5,
+                  itemBuilder:
+                      (context, index) => const Skeleton(
+                        height: PlaceCardWidget.cardHeight,
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                  separatorBuilder: (_, __) => const SizedBox(height: 24),
+                ),
                 PlacesStateFailure(:final failure) => Center(
                   child: Text('Ошибка: $failure'), // todo: add strings
                 ),

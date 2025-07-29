@@ -6,6 +6,7 @@ abstract class AppColors {
   static const colorBackground = Color(0xffF5F5F5);
   static const colorSecondary = Color(0xff3B3E5B);
   static const colorSecondary2 = Color(0xff7C7E92);
+  static const colorSecondary3 = Color(0xfff6f6f6);
   static const colorInactiveBlack = Color.fromRGBO(124, 126, 146, 0.56);
   static const colorPicker = Color(0xFF8CC152);
 

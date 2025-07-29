@@ -21,7 +21,7 @@ class PlaceCardWidget extends StatelessWidget {
     this.isFavorite = false,
   });
 
-  static const _cardHeight = 188.0;
+  static const cardHeight = 188.0;
   static const _imageHeight = 96.0;
 
   @override
@@ -30,7 +30,7 @@ class PlaceCardWidget extends StatelessWidget {
     final textTheme = AppTextTheme.of(context);
 
     return SizedBox(
-      height: _cardHeight,
+      height: cardHeight,
       child: Material(
         color: colorTheme.primary,
         borderRadius: const BorderRadius.all(Radius.circular(12)),

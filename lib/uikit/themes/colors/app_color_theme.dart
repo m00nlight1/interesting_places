@@ -11,6 +11,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color primary;
   final Color icon;
   final Color divider;
+  final Color loader;
   final Color accent;
   final Color active;
   final Color inactive;
@@ -25,6 +26,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.primary,
     required this.icon,
     required this.divider,
+    required this.loader,
     required this.accent,
     required this.active,
     required this.inactive,
@@ -40,6 +42,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     : primary = AppColors.colorWhite,
       icon = AppColors.colorBlack,
       divider = AppColors.colorInactiveBlack,
+      loader = AppColors.colorSecondary3,
       accent = AppColors.colorWhiteGreen,
       active = AppColors.colorSecondary,
       inactive = AppColors.colorInactiveBlack,
@@ -55,6 +58,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? primary,
     Color? icon,
     Color? divider,
+    Color? loader,
     Color? accent,
     Color? active,
     Color? inactive,
@@ -69,6 +73,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       primary: primary ?? this.primary,
       icon: icon ?? this.icon,
       divider: divider ?? this.divider,
+      loader: loader ?? this.loader,
       accent: accent ?? this.accent,
       active: active ?? this.active,
       inactive: inactive ?? this.inactive,
@@ -92,6 +97,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       primary: Color.lerp(primary, other.primary, t)!,
       icon: Color.lerp(icon, other.icon, t)!,
       divider: Color.lerp(divider, other.divider, t)!,
+      loader: Color.lerp(loader, other.loader, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       active: Color.lerp(active, other.active, t)!,
       inactive: Color.lerp(inactive, other.inactive, t)!,
