@@ -8,6 +8,8 @@ abstract interface class IPlaceDetailWM {
 
   void onLikePressed();
 
+  void onBackPressed(BuildContext context);
+
   bool isFavorite();
 
   GlobalKey<HeartAnimatedWidgetState> get heartAnimationKey;
@@ -35,6 +37,13 @@ class PlaceDetailWM implements IPlaceDetailWM {
 
     if (needToAnimate) {
       _heartAnimationKey.currentState?.animate();
+    }
+  }
+
+  @override
+  void onBackPressed(BuildContext context) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
     }
   }
 }

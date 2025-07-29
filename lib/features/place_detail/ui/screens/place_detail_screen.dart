@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/assets/images/app_svg_icons.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_wm.dart';
 import 'package:interesting_places/features/place_detail/ui/widgets/place_detail_photo_slider_widget.dart';
 import 'package:interesting_places/uikit/buttons/main_button.dart';
+import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 import 'package:interesting_places/features/place_detail/ui/widgets/herat_animated_widget.dart';
@@ -31,8 +33,7 @@ class PlaceDetailScreen extends StatelessWidget {
                 expandedHeight: 360,
                 flexibleSpace: PlaceDetailPhotoSliderWidget(
                   images: wm.placeEntity.images,
-                  // todo: to WM
-                  onBackPressed: () => Navigator.pop(context),
+                  onBackPressed: () => wm.onBackPressed(context),
                 ),
               ),
               SliverList(
@@ -54,7 +55,8 @@ class PlaceDetailScreen extends StatelessWidget {
                           const Icon(Icons.route, color: Colors.white),
                           const SizedBox(width: 8),
                           Text(
-                            'Построить маршрут'.toUpperCase(),
+                            'Построить маршрут'
+                                .toUpperCase(), // todo: add string
                             style: textTheme.labelMedium.copyWith(
                               color: colorTheme.primary,
                             ),
@@ -82,10 +84,10 @@ class PlaceDetailScreen extends StatelessWidget {
                               );
                               return TextButton.icon(
                                 onPressed: wm.onLikePressed,
-                                icon: Icon(
+                                icon: SvgPictureWidget(
                                   isFavorite
-                                      ? Icons.favorite
-                                      : Icons.favorite_border,
+                                      ? AppSvgIcons.icHeartFull
+                                      : AppSvgIcons.icHeart,
                                   color:
                                       isFavorite
                                           ? colorTheme.error

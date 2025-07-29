@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/assets/images/app_svg_icons.dart';
+import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 
 class HeartAnimatedWidget extends StatefulWidget {
@@ -20,12 +22,12 @@ class HeartAnimatedWidgetState extends State<HeartAnimatedWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 1200),
     );
 
     _scale = Tween<double>(
       begin: 1.0,
-      end: 2.6,
+      end: 1.8,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
 
     _controller.addStatusListener((status) {
@@ -77,7 +79,10 @@ class HeartAnimatedWidgetState extends State<HeartAnimatedWidget>
           builder: (_, __) {
             return Transform.scale(
               scale: _scale.value,
-              child: Icon(Icons.favorite, color: _color.value),
+              child: SvgPictureWidget(
+                AppSvgIcons.icHeartFull,
+                color: _color.value,
+              ),
             );
           },
         ),

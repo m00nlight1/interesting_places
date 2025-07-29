@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/features/common/utils/media_query_extensions.dart';
-import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
+import 'package:interesting_places/uikit/buttons/back_button_widget.dart';
+import 'package:interesting_places/uikit/images/network_image_widget.dart';
 
 class PlaceDetailPhotoSliderWidget extends StatelessWidget {
   final List<String> images;
@@ -14,7 +15,6 @@ class PlaceDetailPhotoSliderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = AppColorTheme.of(context);
     final topPositionBackButton = context.topPadding + 16;
 
     return LayoutBuilder(
@@ -25,26 +25,14 @@ class PlaceDetailPhotoSliderWidget extends StatelessWidget {
             children: [
               PageView.builder(
                 itemCount: images.length,
-                itemBuilder: (_, index) {
-                  return Image.network(
-                    images[index],
-                    fit: BoxFit.cover,
-                    errorBuilder:
-                        (_, __, ___) =>
-                            Container(color: colorTheme.imagePlaceholder),
-                  );
-                },
+                itemBuilder:
+                    (_, index) =>
+                        NetworkImageWidget(imgUrl: images[index], height: 360),
               ),
               Positioned(
                 left: 16,
                 top: topPositionBackButton,
-                child: CircleAvatar(
-                  backgroundColor: colorTheme.primary,
-                  child: IconButton(
-                    onPressed: onBackPressed,
-                    icon: Icon(Icons.arrow_back, color: colorTheme.icon),
-                  ),
-                ),
+                child: BackButtonWidget(onPressed: onBackPressed),
               ),
             ],
           ),
