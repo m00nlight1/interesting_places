@@ -8,4 +8,7 @@ abstract class AppSvgIcons {
   static const icHeartFull = 'assets/icons/heart_full.svg';
   static const icSettings = 'assets/icons/settings.svg';
   static const icSettingsFull = 'assets/icons/settings_full.svg';
+
+  /// Загрузка фото при добавлении нового места
+  static const icPhoto = 'assets/icons/photo.svg';
 }

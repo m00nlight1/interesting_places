@@ -11,6 +11,7 @@ class Assets {
   static const String iconsListFull = 'assets/icons/list_full.svg';
   static const String iconsMap = 'assets/icons/map.svg';
   static const String iconsMapFull = 'assets/icons/map_full.svg';
+  static const String iconsPhoto = 'assets/icons/photo.svg';
   static const String iconsSettings = 'assets/icons/settings.svg';
   static const String iconsSettingsFull = 'assets/icons/settings_full.svg';
 }
