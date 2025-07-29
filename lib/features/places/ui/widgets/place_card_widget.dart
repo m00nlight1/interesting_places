@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/assets/images/app_svg_icons.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
+import 'package:interesting_places/uikit/buttons/icon_action_button.dart';
+import 'package:interesting_places/uikit/images/network_image_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 
@@ -32,7 +35,7 @@ class PlaceCardWidget extends StatelessWidget {
     return SizedBox(
       height: cardHeight,
       child: Material(
-        color: colorTheme.primary,
+        color: colorTheme.loader,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         clipBehavior: Clip.antiAlias,
         child: Stack(
@@ -43,16 +46,11 @@ class PlaceCardWidget extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    SizedBox(
-                      width: double.infinity,
+                    NetworkImageWidget(
                       height: _imageHeight,
-                      child: Image.network(
-                        place.images.firstWhere((_) => true, orElse: () => ''),
-                        fit: BoxFit.cover,
-                        errorBuilder:
-                            (_, __, ___) => Center(
-                              child: Text('Нет фото'),
-                            ), // todo: add strings
+                      imgUrl: place.images.firstWhere(
+                        (_) => true,
+                        orElse: () => '',
                       ),
                     ),
                     Positioned(
@@ -102,13 +100,11 @@ class PlaceCardWidget extends StatelessWidget {
             Positioned(
               top: 8,
               right: 16,
-              child: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: onLikeTap,
-                child: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border,
-                  color: isFavorite ? colorTheme.error : colorTheme.primary,
-                ),
+              child: IconActionButton(
+                onPressed: onLikeTap,
+                svgPath:
+                    isFavorite ? AppSvgIcons.icHeartFull : AppSvgIcons.icHeart,
+                color: isFavorite ? colorTheme.error : colorTheme.primary,
               ),
             ),
           ],
