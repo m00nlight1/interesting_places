@@ -11,4 +11,7 @@ abstract class AppSvgIcons {
 
   /// Загрузка фото при добавлении нового места
   static const icPhoto = 'assets/icons/photo.svg';
+
+  /// Другие
+  static const icArrow = 'assets/icons/arrow.svg';
 }

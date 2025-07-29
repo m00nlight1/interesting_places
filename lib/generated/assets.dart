@@ -5,6 +5,7 @@ class Assets {
   static const String fontsRobotoBold = 'assets/fonts/Roboto-Bold.ttf';
   static const String fontsRobotoMedium = 'assets/fonts/Roboto-Medium.ttf';
   static const String fontsRobotoRegular = 'assets/fonts/Roboto-Regular.ttf';
+  static const String iconsArrow = 'assets/icons/arrow.svg';
   static const String iconsHeart = 'assets/icons/heart.svg';
   static const String iconsHeartFull = 'assets/icons/heart_full.svg';
   static const String iconsList = 'assets/icons/list.svg';
