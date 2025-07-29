@@ -1,7 +1,7 @@
 import 'package:interesting_places/api/service/api_client.dart';
 import 'package:interesting_places/core/data/repositories/base_repository.dart';
 import 'package:interesting_places/core/domain/entities/result/request_operation.dart';
-import 'package:interesting_places/features/common/converters/place_converter.dart';
+import 'package:interesting_places/features/common/data/converters/place_converter.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/features/places/domain/repositories/i_places_repository.dart';
 

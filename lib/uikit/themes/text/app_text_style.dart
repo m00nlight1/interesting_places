@@ -5,7 +5,7 @@ const _fontFamily = 'Roboto';
 enum AppTextStyle {
   titleLarge(
     TextStyle(
-      fontSize: 32,
+      fontSize: 18,
       fontWeight: FontWeight.w700,
       height: 1.125,
       fontFamily: _fontFamily,

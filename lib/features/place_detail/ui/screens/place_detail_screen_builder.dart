@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
-import 'package:interesting_places/features/place_detail/ui/place_detail_dependencies.dart';
+import 'package:interesting_places/features/place_detail/place_detail_dependencies.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_model.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_screen.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_wm.dart';

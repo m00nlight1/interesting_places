@@ -16,7 +16,9 @@ abstract class AppThemeData {
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       iconTheme: IconThemeData(color: _lightColorTheme.icon),
-      titleTextStyle: _textTheme.titleLarge,
+      titleTextStyle: _textTheme.titleLarge.copyWith(
+        color: _lightColorTheme.textPrimary,
+      ),
     ),
     dividerTheme: DividerThemeData(color: _lightColorTheme.divider),
     sliderTheme: SliderThemeData(
@@ -30,6 +32,11 @@ abstract class AppThemeData {
       tickMarkShape: SliderTickMarkShape.noTickMark,
       showValueIndicator: ShowValueIndicator.never,
       padding: EdgeInsets.zero,
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: _lightColorTheme.primary,
+      unselectedItemColor: _lightColorTheme.inactive,
+      selectedItemColor: _lightColorTheme.active,
     ),
   );
 }

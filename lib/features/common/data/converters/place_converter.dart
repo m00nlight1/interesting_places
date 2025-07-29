@@ -1,6 +1,6 @@
 import 'package:interesting_places/api/data/place_dto.dart';
 import 'package:interesting_places/core/data/converter/converter.dart';
-import 'package:interesting_places/features/common/converters/place_type_converter.dart';
+import 'package:interesting_places/features/common/data/converters/place_type_converter.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 
 /// Конвертер из [PlaceDto] в [PlaceEntity].
