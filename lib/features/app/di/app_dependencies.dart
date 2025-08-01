@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:interesting_places/api/service/api_client.dart';
+import 'package:interesting_places/core/data/local_storage/preferences_service.dart';
 import 'package:interesting_places/features/common/data/repositories/favorites_repository.dart';
 import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ abstract class AppDependencies {
     return [
       Provider<ApiClient>(create: (_) => apiClient),
       Provider<IFavoritesRepository>(create: (_) => FavoritesRepository()),
+      Provider<PreferencesService>(create: (_) => PreferencesService()),
     ];
   }
 }
