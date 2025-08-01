@@ -59,7 +59,7 @@ class PlaceCardWidget extends StatelessWidget {
                       right: 12,
                       child: Text(
                         place.placeType.name.toLowerCase(),
-                        style: textTheme.labelSmall.copyWith(
+                        style: textTheme.smallBold.copyWith(
                           color: colorTheme.primary,
                         ),
                       ),
@@ -73,14 +73,14 @@ class PlaceCardWidget extends StatelessWidget {
                     children: [
                       Text(
                         place.name,
-                        style: textTheme.bodyMedium,
+                        style: textTheme.text,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 2),
                       Text(
                         place.description,
-                        style: textTheme.bodySmall.copyWith(
+                        style: textTheme.small.copyWith(
                           color: colorTheme.textSecondary,
                         ),
                         maxLines: 2,

@@ -19,7 +19,7 @@ class MainButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = AppTextTheme.of(context);
     final colorTheme = AppColorTheme.of(context);
-    final textStyle = textTheme.labelMedium;
+    final textStyle = textTheme.button;
     final isLoading = state == ButtonState.loading;
 
     return FilledButton(

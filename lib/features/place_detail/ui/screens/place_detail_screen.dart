@@ -57,7 +57,7 @@ class PlaceDetailScreen extends StatelessWidget {
                           Text(
                             'Построить маршрут'
                                 .toUpperCase(), // todo: add string
-                            style: textTheme.labelMedium.copyWith(
+                            style: textTheme.button.copyWith(
                               color: colorTheme.primary,
                             ),
                           ),
@@ -96,7 +96,7 @@ class PlaceDetailScreen extends StatelessWidget {
                                 label: Text(
                                   isFavorite ? 'В Избранном' : 'В Избранное',
                                   // todo: add strings
-                                  style: textTheme.bodySmall.copyWith(
+                                  style: textTheme.small.copyWith(
                                     color: colorTheme.textSecondary,
                                   ),
                                 ),

@@ -8,40 +8,55 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
   }
 
   final TextStyle titleLarge;
-  final TextStyle bodySmall;
-  final TextStyle bodyMedium;
-  final TextStyle labelSmall;
-  final TextStyle labelMedium;
+  final TextStyle title;
+  final TextStyle subtitle;
+  final TextStyle text;
+  final TextStyle button;
+  final TextStyle small;
+  final TextStyle smallBold;
+  final TextStyle superSmall;
 
   const AppTextTheme._({
     required this.titleLarge,
-    required this.bodySmall,
-    required this.bodyMedium,
-    required this.labelSmall,
-    required this.labelMedium,
+    required this.title,
+    required this.subtitle,
+    required this.text,
+    required this.button,
+    required this.small,
+    required this.smallBold,
+    required this.superSmall,
   });
 
   AppTextTheme.base()
     : titleLarge = AppTextStyle.titleLarge.value,
-      bodySmall = AppTextStyle.bodySmall.value,
-      bodyMedium = AppTextStyle.bodyMedium.value,
-      labelSmall = AppTextStyle.labelSmall.value,
-      labelMedium = AppTextStyle.labelMedium.value;
+      title = AppTextStyle.title.value,
+      subtitle = AppTextStyle.subtitle.value,
+      text = AppTextStyle.text.value,
+      button = AppTextStyle.button.value,
+      small = AppTextStyle.small.value,
+      smallBold = AppTextStyle.smallBold.value,
+      superSmall = AppTextStyle.superSmall.value;
 
   @override
   ThemeExtension<AppTextTheme> copyWith({
     TextStyle? titleLarge,
-    TextStyle? bodySmall,
-    TextStyle? bodyMedium,
-    TextStyle? labelSmall,
-    TextStyle? labelMedium,
+    TextStyle? title,
+    TextStyle? subtitle,
+    TextStyle? text,
+    TextStyle? button,
+    TextStyle? small,
+    TextStyle? smallBold,
+    TextStyle? superSmall,
   }) {
     return AppTextTheme._(
       titleLarge: titleLarge ?? this.titleLarge,
-      bodySmall: bodySmall ?? this.bodySmall,
-      bodyMedium: bodyMedium ?? this.bodyMedium,
-      labelSmall: labelSmall ?? this.labelSmall,
-      labelMedium: labelMedium ?? this.labelMedium,
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+      text: text ?? this.text,
+      button: button ?? this.button,
+      small: small ?? this.small,
+      smallBold: smallBold ?? this.smallBold,
+      superSmall: superSmall ?? this.superSmall,
     );
   }
 
@@ -54,10 +69,13 @@ class AppTextTheme extends ThemeExtension<AppTextTheme> {
 
     return AppTextTheme._(
       titleLarge: TextStyle.lerp(titleLarge, other.titleLarge, t)!,
-      bodySmall: TextStyle.lerp(bodySmall, other.bodySmall, t)!,
-      bodyMedium: TextStyle.lerp(bodyMedium, other.bodyMedium, t)!,
-      labelSmall: TextStyle.lerp(labelSmall, other.labelSmall, t)!,
-      labelMedium: TextStyle.lerp(labelMedium, other.labelMedium, t)!,
+      title: TextStyle.lerp(title, other.title, t)!,
+      subtitle: TextStyle.lerp(subtitle, other.subtitle, t)!,
+      text: TextStyle.lerp(text, other.text, t)!,
+      button: TextStyle.lerp(button, other.button, t)!,
+      small: TextStyle.lerp(small, other.small, t)!,
+      smallBold: TextStyle.lerp(smallBold, other.smallBold, t)!,
+      superSmall: TextStyle.lerp(superSmall, other.superSmall, t)!,
     );
   }
 }
