@@ -20,9 +20,22 @@ abstract class AppStrings {
   static const placesScreenBottomNavSettings = 'Настройки';
 
   /// Детали места.
-  static const placeDetailsRouteButton = 'Построить маршрут';
+  static const placeDetailsShareButton = 'Поделиться';
+  static const placeDetailsShareText = 'Посмотри, какое интересное место:';
   static const placeDetailsFavoritesButton = 'В Избранное';
   static const placeDetailsInFavoritesButton = 'В Избранном';
+
+  /// Типы мест
+  static const placeTypeRestaurant = 'Ресторан';
+  static const placeTypeCafe = 'Кафе';
+  static const placeTypePark = 'Парк';
+  static const placeTypeMuseum = 'Музей';
+  static const placeTypeMonument = 'Памятник';
+  static const placeTypeTheatre = 'Театр';
+  static const placeTypeTemple = 'Храм';
+  static const placeTypeHotel = 'Отель';
+  static const placeTypeShopping = 'Магазин';
+  static const placeTypeOther = 'Другое';
 
   /// Настройки
   static const settingsViewTutorial = 'Смотреть туториал';
@@ -33,6 +46,8 @@ abstract class AppStrings {
 
   /// Загрузка, ошибки
   static const placesLoading = 'Загрузка';
-  static const placesError = 'Что-то пошло не так.\\n Ошибка: ';
+  static const placesErrorTitle = 'Ошибка';
+  static const placesErrorDescription =
+      'Что то пошло не так \nПопробуйте позже.';
   static const noPhoto = 'Нет фото';
 }
