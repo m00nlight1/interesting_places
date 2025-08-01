@@ -1,4 +1,9 @@
 abstract class AppSvgIcons {
+  /// Онбординг.
+  static const onboardingPage1 = 'assets/icons/onboarding_page_1.svg';
+  static const onboardingPage2 = 'assets/icons/onboarding_page_2.svg';
+  static const onboardingPage3 = 'assets/icons/onboarding_page_3.svg';
+
   /// Bottom Navigation Bar
   static const icList = 'assets/icons/list.svg';
   static const icListFull = 'assets/icons/list_full.svg';
