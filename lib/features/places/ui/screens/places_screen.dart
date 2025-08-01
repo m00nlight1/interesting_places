@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/places/domain/enities/places_state.dart';
 import 'package:interesting_places/features/places/ui/screens/places_wm.dart';
 import 'package:interesting_places/features/places/ui/widgets/place_card_widget.dart';
@@ -18,9 +19,8 @@ class PlacesScreen extends StatelessWidget {
           return NestedScrollView(
             headerSliverBuilder:
                 (_, __) => [
-                  // todo: add strings
                   SliverAppBar(
-                    title: const Text('Interesting Places'),
+                    title: const Text(AppStrings.placesScreenAppBarTitle),
                     floating: true,
                     snap: true,
                   ),

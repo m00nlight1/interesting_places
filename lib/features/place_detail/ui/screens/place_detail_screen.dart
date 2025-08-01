@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
+import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_wm.dart';
@@ -55,8 +56,7 @@ class PlaceDetailScreen extends StatelessWidget {
                           const Icon(Icons.route, color: Colors.white),
                           const SizedBox(width: 8),
                           Text(
-                            'Построить маршрут'
-                                .toUpperCase(), // todo: add string
+                            AppStrings.placeDetailsRouteButton.toUpperCase(),
                             style: textTheme.button.copyWith(
                               color: colorTheme.primary,
                             ),
@@ -94,8 +94,9 @@ class PlaceDetailScreen extends StatelessWidget {
                                           : colorTheme.textSecondary,
                                 ),
                                 label: Text(
-                                  isFavorite ? 'В Избранном' : 'В Избранное',
-                                  // todo: add strings
+                                  isFavorite
+                                      ? AppStrings.placeDetailsInFavoritesButton
+                                      : AppStrings.placeDetailsFavoritesButton,
                                   style: textTheme.small.copyWith(
                                     color: colorTheme.textSecondary,
                                   ),

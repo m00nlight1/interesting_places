@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
+import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/onboarding/ui/screens/onboarding_wm.dart';
 import 'package:interesting_places/uikit/buttons/main_button.dart';
 import 'package:interesting_places/uikit/buttons/text_button_widget.dart';
@@ -18,23 +19,22 @@ class OnboardingScreen extends StatelessWidget {
     final colorTheme = AppColorTheme.of(context);
     final textTheme = AppTextTheme.of(context);
 
-    // todo: add strings
     final List<PageViewModel> pages = [
       PageViewModel(
-        title: 'Добро пожаловать\nв Путеводитель',
-        body: 'Ищи новые локации и сохраняй\nсамые любимые.',
+        title: AppStrings.onboardingPage1Title,
+        body: AppStrings.onboardingPage1Description,
         image: SvgPictureWidget(AppSvgIcons.onboardingPage1),
         decoration: _pageDecoration(textTheme, colorTheme),
       ),
       PageViewModel(
-        title: "Построй маршрут\nи отправляйся в путь",
-        body: "Достигай цели максимально\nбыстро и комфортно.",
+        title: AppStrings.onboardingPage2Title,
+        body: AppStrings.onboardingPage2Description,
         image: SvgPictureWidget(AppSvgIcons.onboardingPage2),
         decoration: _pageDecoration(textTheme, colorTheme),
       ),
       PageViewModel(
-        title: "Добавляй места,\nкоторые нашёл сам",
-        body: "Делись самыми интересными\nи помоги нам стать лучше!",
+        title: AppStrings.onboardingPage3Title,
+        body: AppStrings.onboardingPage3Description,
         image: SvgPictureWidget(AppSvgIcons.onboardingPage3),
         decoration: _pageDecoration(textTheme, colorTheme),
       ),
@@ -55,7 +55,7 @@ class OnboardingScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: SafeArea(
                       child: TextButtonWidget(
-                        title: "Пропустить",
+                        title: AppStrings.onboardingSkipButton,
                         onPressed: () => wm.onSkipPressed(context),
                       ),
                     ),
@@ -74,7 +74,9 @@ class OnboardingScreen extends StatelessWidget {
                         width: double.infinity,
                         child: MainButton(
                           onPressed: () => wm.onDonePressed(context),
-                          child: Text('НА СТАРТ'),
+                          child: Text(
+                            AppStrings.onboardingStartButton.toUpperCase(),
+                          ),
                         ),
                       ),
                     ),
