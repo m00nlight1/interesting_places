@@ -15,7 +15,7 @@ class BackButtonWidget extends StatelessWidget {
     return ButtonRounded(
       size: 32,
       backgroundColor: colorTheme.primary,
-      radius: 50,
+      radius: 10,
       icon: AppSvgIcons.icArrow,
       iconColor: colorTheme.icon,
       onPressed: onPressed ?? Navigator.of(context).pop,

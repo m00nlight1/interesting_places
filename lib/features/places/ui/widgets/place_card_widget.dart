@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
+import 'package:interesting_places/features/common/domain/entities/place_type_entity.dart';
 import 'package:interesting_places/uikit/buttons/icon_action_button.dart';
 import 'package:interesting_places/uikit/images/network_image_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
@@ -35,7 +36,7 @@ class PlaceCardWidget extends StatelessWidget {
     return SizedBox(
       height: cardHeight,
       child: Material(
-        color: colorTheme.loader,
+        color: colorTheme.imagePlaceholder,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         clipBehavior: Clip.antiAlias,
         child: Stack(
@@ -53,12 +54,25 @@ class PlaceCardWidget extends StatelessWidget {
                         orElse: () => '',
                       ),
                     ),
+                    SizedBox(
+                      height: _imageHeight,
+                      width: double.infinity,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.transparent, colorTheme.inactive],
+                          ),
+                        ),
+                      ),
+                    ),
                     Positioned(
                       left: 16,
                       top: 16,
                       right: 12,
                       child: Text(
-                        place.placeType.name.toLowerCase(),
+                        place.placeType.displayName.toLowerCase(),
                         style: textTheme.smallBold.copyWith(
                           color: colorTheme.primary,
                         ),

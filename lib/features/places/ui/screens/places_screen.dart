@@ -3,7 +3,9 @@ import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/places/domain/enities/places_state.dart';
 import 'package:interesting_places/features/places/ui/screens/places_wm.dart';
 import 'package:interesting_places/features/places/ui/widgets/place_card_widget.dart';
+import 'package:interesting_places/uikit/error/app_error_widget.dart';
 import 'package:interesting_places/uikit/loading/skeleton.dart';
+import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 
 class PlacesScreen extends StatelessWidget {
   final IPlacesWM wm;
@@ -12,6 +14,8 @@ class PlacesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = AppTextTheme.of(context);
+
     return Scaffold(
       body: ValueListenableBuilder<PlacesState>(
         valueListenable: wm.placesStateListenable,
@@ -20,7 +24,11 @@ class PlacesScreen extends StatelessWidget {
             headerSliverBuilder:
                 (_, __) => [
                   SliverAppBar(
-                    title: const Text(AppStrings.placesScreenAppBarTitle),
+                    title: Text(
+                      AppStrings.placesScreenAppBarTitle,
+                      style: textTheme.subtitle,
+                    ),
+                    centerTitle: true,
                     floating: true,
                     snap: true,
                   ),
@@ -38,9 +46,7 @@ class PlacesScreen extends StatelessWidget {
                       ),
                   separatorBuilder: (_, __) => const SizedBox(height: 24),
                 ),
-                PlacesStateFailure(:final failure) => Center(
-                  child: Text('Ошибка: $failure'), // todo: add strings
-                ),
+                PlacesStateFailure(:final failure) => const AppErrorWidget(),
                 PlacesStateData(:final places) => ListView.separated(
                   padding: const EdgeInsets.only(
                     top: 16,
