@@ -8,6 +8,7 @@ class Assets {
   static const String iconsArrow = 'assets/icons/arrow.svg';
   static const String iconsHeart = 'assets/icons/heart.svg';
   static const String iconsHeartFull = 'assets/icons/heart_full.svg';
+  static const String iconsInfo = 'assets/icons/info.svg';
   static const String iconsList = 'assets/icons/list.svg';
   static const String iconsListFull = 'assets/icons/list_full.svg';
   static const String iconsMap = 'assets/icons/map.svg';
@@ -21,4 +22,8 @@ class Assets {
   static const String iconsPhoto = 'assets/icons/photo.svg';
   static const String iconsSettings = 'assets/icons/settings.svg';
   static const String iconsSettingsFull = 'assets/icons/settings_full.svg';
+  static const String imagesSplashBackground =
+      'assets/images/splash_background.png';
+  static const String imagesSplashForegroundd =
+      'assets/images/splash_foreground.png';
 }

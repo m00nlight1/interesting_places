@@ -16,6 +16,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color active;
   final Color inactive;
   final Color inactiveVariant;
+  final Color secondaryVariant;
   final Color imagePlaceholder;
   final Color textPrimary;
   final Color textSecondary;
@@ -31,6 +32,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     required this.active,
     required this.inactive,
     required this.inactiveVariant,
+    required this.secondaryVariant,
     required this.imagePlaceholder,
     required this.textPrimary,
     required this.textSecondary,
@@ -47,6 +49,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       active = AppColors.colorSecondary,
       inactive = AppColors.colorInactiveBlack,
       inactiveVariant = AppColors.colorBackground,
+      secondaryVariant = AppColors.colorSecondary2,
       imagePlaceholder = AppColors.colorBackground,
       textPrimary = AppColors.colorWhiteMain,
       textSecondary = AppColors.colorSecondary,
@@ -63,6 +66,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
     Color? active,
     Color? inactive,
     Color? inactiveVariant,
+    Color? secondaryVariant,
     Color? imagePlaceholder,
     Color? textPrimary,
     Color? textSecondary,
@@ -78,6 +82,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       active: active ?? this.active,
       inactive: inactive ?? this.inactive,
       inactiveVariant: inactiveVariant ?? this.inactiveVariant,
+      secondaryVariant: secondaryVariant ?? this.secondaryVariant,
       imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
@@ -102,6 +107,8 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
       active: Color.lerp(active, other.active, t)!,
       inactive: Color.lerp(inactive, other.inactive, t)!,
       inactiveVariant: Color.lerp(inactiveVariant, other.inactiveVariant, t)!,
+      secondaryVariant:
+          Color.lerp(secondaryVariant, other.secondaryVariant, t)!,
       imagePlaceholder:
           Color.lerp(imagePlaceholder, other.imagePlaceholder, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
