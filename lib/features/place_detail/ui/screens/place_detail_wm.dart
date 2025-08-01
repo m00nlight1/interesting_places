@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_model.dart';
 import 'package:interesting_places/features/place_detail/ui/widgets/herat_animated_widget.dart';
+import 'package:share_plus/share_plus.dart';
 
 abstract interface class IPlaceDetailWM {
   PlaceEntity get placeEntity;
 
   void onLikePressed();
+
+  void onSharePressed();
 
   void onBackPressed(BuildContext context);
 
@@ -45,5 +49,13 @@ class PlaceDetailWM implements IPlaceDetailWM {
     if (Navigator.of(context).canPop()) {
       Navigator.of(context).pop();
     }
+  }
+
+  @override
+  void onSharePressed() {
+    final placeName = placeEntity.name;
+    SharePlus.instance.share(
+      ShareParams(text: '${AppStrings.placeDetailsShareText} $placeName'),
+    );
   }
 }

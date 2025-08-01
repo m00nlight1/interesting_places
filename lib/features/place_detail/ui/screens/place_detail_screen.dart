@@ -5,7 +5,6 @@ import 'package:interesting_places/features/common/domain/entities/place_entity.
 import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_wm.dart';
 import 'package:interesting_places/features/place_detail/ui/widgets/place_detail_photo_slider_widget.dart';
-import 'package:interesting_places/uikit/buttons/main_button.dart';
 import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
@@ -44,33 +43,23 @@ class PlaceDetailScreen extends StatelessWidget {
                     child: PlaceDetailContentWidget(place: place),
                   ),
                   const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: MainButton(
-                      onPressed: () {
-                        // todo: impl map
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.route, color: Colors.white),
-                          const SizedBox(width: 8),
-                          Text(
-                            AppStrings.placeDetailsRouteButton.toUpperCase(),
-                            style: textTheme.button.copyWith(
-                              color: colorTheme.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
                   const Divider(indent: 16, endIndent: 16),
-                  const SizedBox(height: 8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+                      TextButton.icon(
+                        onPressed: wm.onSharePressed,
+                        icon: SvgPictureWidget(
+                          AppSvgIcons.icShare,
+                          color: colorTheme.textSecondary,
+                        ),
+                        label: Text(
+                          AppStrings.placeDetailsShareButton,
+                          style: textTheme.small.copyWith(
+                            color: colorTheme.textSecondary,
+                          ),
+                        ),
+                      ),
                       Builder(
                         builder: (context) {
                           final favoritesRepository =

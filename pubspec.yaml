@@ -24,6 +24,7 @@ dependencies:
   path_provider: 2.1.5
   provider: ^6.1.5
   retrofit: ^4.6.0
+  share_plus: ^11.0.0
   shared_preferences: ^2.5.3
 
 dev_dependencies:
