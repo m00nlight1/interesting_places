@@ -17,6 +17,12 @@ abstract class AppSvgIcons {
   /// Загрузка фото при добавлении нового места
   static const icPhoto = 'assets/icons/photo.svg';
 
+  /// Действия на карточке
+  static const icShare = 'assets/icons/share.svg';
+
+  /// Пустые страницы (результат не найден) и ошибки
+  static const icNetworkException = 'assets/icons/error_delete.svg';
+
   /// Другие
   static const icArrow = 'assets/icons/arrow.svg';
   static const icInfo = 'assets/icons/info.svg';
