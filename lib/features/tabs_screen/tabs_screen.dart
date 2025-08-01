@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
 import 'package:interesting_places/features/places/ui/screens/places_screen_builder.dart';
+import 'package:interesting_places/features/settings/ui/screens/settings_screen_builder.dart';
 import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _TabsScreenState extends State<TabsScreen> {
     const PlacesScreenBuilder(),
     const Center(child: Text('Карта (заглушка)')),
     const Center(child: Text('Избранное (заглушка)')),
-    const Center(child: Text('Настройки (заглушка)')),
+    const SettingsScreenBuilder(),
   ];
 
   void _onTabTapped(int index) {
