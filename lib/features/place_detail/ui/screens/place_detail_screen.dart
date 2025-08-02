@@ -8,7 +8,7 @@ import 'package:interesting_places/features/place_detail/ui/widgets/place_detail
 import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
-import 'package:interesting_places/features/place_detail/ui/widgets/herat_animated_widget.dart';
+import 'package:interesting_places/features/place_detail/ui/widgets/heart_animated_widget.dart';
 import 'package:interesting_places/features/place_detail/ui/widgets/place_detail_content_widget.dart';
 import 'package:provider/provider.dart';
 

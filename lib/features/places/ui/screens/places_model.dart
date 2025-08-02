@@ -74,7 +74,7 @@ class PlacesModel implements IPlacesModel {
       _favoritesRepository.favoritesListenable;
 }
 
-abstract class IPlacesModel {
+abstract interface class IPlacesModel {
   ValueListenable<PlacesState> get placesStateListenable;
 
   ValueListenable<List<PlaceEntity>> get favoritesPlaces;

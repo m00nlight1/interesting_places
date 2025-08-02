@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/common/domain/entities/place_entity.dart';
 import 'package:interesting_places/features/place_detail/ui/screens/place_detail_model.dart';
-import 'package:interesting_places/features/place_detail/ui/widgets/herat_animated_widget.dart';
+import 'package:interesting_places/features/place_detail/ui/widgets/heart_animated_widget.dart';
 import 'package:share_plus/share_plus.dart';
 
 abstract interface class IPlaceDetailWM {
