@@ -36,13 +36,14 @@ class MapModel implements IMapModel {
   }
 
   @override
-  void selectMarker(MapMarkerEntity selectedMarker) {
+  void selectMarker(MapMarkerEntity? selectedMarker) {
     final currentState = _mapState.value;
     if (currentState is! MapStateData) return;
 
     final updatedMarkers =
         currentState.markers.map((marker) {
-          return marker.copyWith(isSelected: marker == selectedMarker);
+          final isSelected = selectedMarker != null && marker == selectedMarker;
+          return marker.copyWith(isSelected: isSelected);
         }).toList();
     _mapState.value = currentState.copyWith(markers: updatedMarkers);
   }
@@ -63,7 +64,7 @@ abstract interface class IMapModel {
 
   Future<void> getMarkers();
 
-  void selectMarker(MapMarkerEntity marker);
+  void selectMarker(MapMarkerEntity? marker);
 
   void updateUserLocation(LatLng? location);
 }

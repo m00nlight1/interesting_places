@@ -26,6 +26,7 @@ class MapScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           AppStrings.placesScreenBottomNavPlaces,
           style: textTheme.subtitle,
@@ -73,7 +74,7 @@ class MapScreen extends StatelessWidget {
                               width: marker.isSelected ? 24 : 10,
                               height: marker.isSelected ? 24 : 10,
                               child: InkWell(
-                                onTap: () => wm.onMarkerTap(marker),
+                                onTap: () => wm.onMarkerTap(context, marker),
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,

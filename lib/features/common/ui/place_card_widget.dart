@@ -5,6 +5,7 @@ import 'package:interesting_places/features/common/domain/entities/place_type_en
 import 'package:interesting_places/uikit/buttons/icon_action_button.dart';
 import 'package:interesting_places/uikit/images/network_image_widget.dart';
 import 'package:interesting_places/uikit/themes/colors/app_color_theme.dart';
+import 'package:interesting_places/uikit/themes/colors/app_colors.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';
 
 enum PlaceCardType { place, favorite }
@@ -15,6 +16,7 @@ class PlaceCardWidget extends StatelessWidget {
   final VoidCallback onLikeTap;
   final bool isFavorite;
   final PlaceCardType cardType;
+  final Color? backgroundColor;
 
   const PlaceCardWidget({
     super.key,
@@ -22,6 +24,7 @@ class PlaceCardWidget extends StatelessWidget {
     required this.onCardTap,
     required this.onLikeTap,
     this.cardType = PlaceCardType.place,
+    this.backgroundColor = AppColors.colorBackground,
     this.isFavorite = false,
   });
 
@@ -36,7 +39,7 @@ class PlaceCardWidget extends StatelessWidget {
     return SizedBox(
       height: cardHeight,
       child: Material(
-        color: colorTheme.imagePlaceholder,
+        color: backgroundColor,
         borderRadius: const BorderRadius.all(Radius.circular(12)),
         clipBehavior: Clip.antiAlias,
         child: Stack(

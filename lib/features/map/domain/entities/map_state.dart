@@ -45,8 +45,7 @@ final class MapStateData extends MapState {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(markers.hashCode, currentUserLocation.hashCode);
+  int get hashCode => Object.hash(Object.hashAll(markers), currentUserLocation);
 
   @override
   bool operator ==(Object other) =>

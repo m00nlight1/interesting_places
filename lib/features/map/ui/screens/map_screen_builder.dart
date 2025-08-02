@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interesting_places/features/common/domain/repositories/i_favorites_repository.dart';
 import 'package:interesting_places/features/map/domain/services/i_location_service.dart';
 import 'package:interesting_places/features/map/ui/map_dependencies.dart';
 import 'package:interesting_places/features/map/ui/screens/map_model.dart';
@@ -19,6 +20,7 @@ class MapScreenBuilder extends StatelessWidget {
               (context) => MapWM(
                 context.read<IMapModel>(),
                 context.read<ILocationService>(),
+                context.read<IFavoritesRepository>(),
               ),
           dispose: (_, wm) => wm.dispose(),
         ),

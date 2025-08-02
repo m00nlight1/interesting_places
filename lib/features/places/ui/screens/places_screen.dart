@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/strings/app_strings.dart';
 import 'package:interesting_places/features/places/domain/enities/places_state.dart';
 import 'package:interesting_places/features/places/ui/screens/places_wm.dart';
-import 'package:interesting_places/features/places/ui/widgets/place_card_widget.dart';
+import 'package:interesting_places/features/common/ui/place_card_widget.dart';
 import 'package:interesting_places/uikit/error/app_error_widget.dart';
 import 'package:interesting_places/uikit/loading/skeleton.dart';
 import 'package:interesting_places/uikit/themes/text/app_text_theme.dart';

@@ -38,5 +38,9 @@ abstract class AppThemeData {
       unselectedItemColor: _lightColorTheme.inactive,
       selectedItemColor: _lightColorTheme.active,
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      showDragHandle: true,
+      dragHandleColor: Colors.transparent,
+    ),
   );
 }
