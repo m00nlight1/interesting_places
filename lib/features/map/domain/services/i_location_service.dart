@@ -3,4 +3,6 @@ import 'package:latlong2/latlong.dart';
 
 abstract interface class ILocationService {
   RequestOperation<LatLng> getCurrentLocation();
+
+  void openAppSettings();
 }

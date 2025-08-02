@@ -28,4 +28,7 @@ class LocationService implements ILocationService {
     return permission == LocationPermission.always ||
         permission == LocationPermission.whileInUse;
   }
+
+  @override
+  void openAppSettings() => Geolocator.openAppSettings();
 }
