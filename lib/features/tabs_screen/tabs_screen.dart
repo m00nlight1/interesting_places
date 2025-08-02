@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
+import 'package:interesting_places/features/map/ui/screens/map_screen_builder.dart';
 import 'package:interesting_places/features/places/ui/screens/places_screen_builder.dart';
 import 'package:interesting_places/features/settings/ui/screens/settings_screen_builder.dart';
 import 'package:interesting_places/uikit/images/svg_picture_widget.dart';
@@ -16,7 +17,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Widget> _pages = [
     const PlacesScreenBuilder(),
-    const Center(child: Text('Карта (заглушка)')),
+    const MapScreenBuilder(),
     const Center(child: Text('Избранное (заглушка)')),
     const SettingsScreenBuilder(),
   ];

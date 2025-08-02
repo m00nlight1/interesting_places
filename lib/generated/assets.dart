@@ -7,6 +7,7 @@ class Assets {
   static const String fontsRobotoRegular = 'assets/fonts/Roboto-Regular.ttf';
   static const String iconsArrow = 'assets/icons/arrow.svg';
   static const String iconsErrorDelete = 'assets/icons/error_delete.svg';
+  static const String iconsGeolocation = 'assets/icons/geolocation.svg';
   static const String iconsHeart = 'assets/icons/heart.svg';
   static const String iconsHeartFull = 'assets/icons/heart_full.svg';
   static const String iconsInfo = 'assets/icons/info.svg';

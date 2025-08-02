@@ -23,6 +23,9 @@ abstract class AppSvgIcons {
   /// Пустые страницы (результат не найден) и ошибки
   static const icNetworkException = 'assets/icons/error_delete.svg';
 
+  /// Карта
+  static const icGeolocation = 'assets/icons/geolocation.svg';
+
   /// Другие
   static const icArrow = 'assets/icons/arrow.svg';
   static const icInfo = 'assets/icons/info.svg';

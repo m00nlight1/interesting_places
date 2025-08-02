@@ -15,7 +15,7 @@ abstract class AppStrings {
 
   /// Список мест.
   static const placesScreenAppBarTitle = 'Список интересных мест';
-  static const placesScreenBottomNavPlaces = 'Места';
+  static const placesScreenBottomNavPlaces = 'Карта';
   static const placesScreenBottomNavFavorites = 'Избранное';
   static const placesScreenBottomNavSettings = 'Настройки';
 
@@ -50,4 +50,7 @@ abstract class AppStrings {
   static const placesErrorDescription =
       'Что то пошло не так \nПопробуйте позже.';
   static const noPhoto = 'Нет фото';
+
+  static const noLocationPermission =
+      'Разрешите геолокацию в настройках, чтобы карта работала точнее';
 }
