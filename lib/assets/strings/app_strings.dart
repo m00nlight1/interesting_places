@@ -40,6 +40,9 @@ abstract class AppStrings {
   /// Настройки
   static const settingsViewTutorial = 'Смотреть туториал';
 
+  /// Поиск
+  static const searchHint = 'Поиск';
+
   /// Снэк-бары для действий с карточкой.
   static const cardTapSnackbar = 'Тап по карточке';
   static const likeTapSnackbar = 'Лайк для';
@@ -50,7 +53,9 @@ abstract class AppStrings {
   static const placesErrorDescription =
       'Что то пошло не так \nПопробуйте позже.';
   static const noPhoto = 'Нет фото';
-
+  static const searchEmptyTitle = 'Ничего не найдено.';
+  static const searchEmptyDescription =
+      'Попробуйте изменить параметры \nпоиска';
   static const noLocationPermission =
       'Разрешите геолокацию в настройках, чтобы карта работала точнее';
 }

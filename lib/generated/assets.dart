@@ -6,6 +6,7 @@ class Assets {
   static const String fontsRobotoMedium = 'assets/fonts/Roboto-Medium.ttf';
   static const String fontsRobotoRegular = 'assets/fonts/Roboto-Regular.ttf';
   static const String iconsArrow = 'assets/icons/arrow.svg';
+  static const String iconsClear = 'assets/icons/clear.svg';
   static const String iconsErrorDelete = 'assets/icons/error_delete.svg';
   static const String iconsGeolocation = 'assets/icons/geolocation.svg';
   static const String iconsHeart = 'assets/icons/heart.svg';
@@ -22,6 +23,7 @@ class Assets {
   static const String iconsOnboardingPage3 =
       'assets/icons/onboarding_page_3.svg';
   static const String iconsPhoto = 'assets/icons/photo.svg';
+  static const String iconsSearch = 'assets/icons/search.svg';
   static const String iconsSettings = 'assets/icons/settings.svg';
   static const String iconsSettingsFull = 'assets/icons/settings_full.svg';
   static const String iconsShare = 'assets/icons/share.svg';

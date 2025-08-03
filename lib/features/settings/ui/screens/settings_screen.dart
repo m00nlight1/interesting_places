@@ -39,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
               onTap: () => wm.onViewTutorialPressed(context),
               contentPadding: const EdgeInsets.only(right: 8),
             ),
-            const Divider(height: 0, thickness: 1),
+            const Divider(height: 0, thickness: 0),
           ],
         ),
       ),

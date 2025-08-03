@@ -42,5 +42,10 @@ abstract class AppThemeData {
       showDragHandle: true,
       dragHandleColor: Colors.transparent,
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: _lightColorTheme.textSecondary,
+      selectionColor: _lightColorTheme.textSecondary.withOpacity(0.4),
+      selectionHandleColor: _lightColorTheme.textSecondary,
+    ),
   );
 }

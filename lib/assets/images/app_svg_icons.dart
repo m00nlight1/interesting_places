@@ -29,4 +29,6 @@ abstract class AppSvgIcons {
   /// Другие
   static const icArrow = 'assets/icons/arrow.svg';
   static const icInfo = 'assets/icons/info.svg';
+  static const icSearch = 'assets/icons/search.svg';
+  static const icClear = 'assets/icons/clear.svg';
 }

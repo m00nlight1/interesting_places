@@ -43,7 +43,7 @@ class PlaceDetailScreen extends StatelessWidget {
                     child: PlaceDetailContentWidget(place: place),
                   ),
                   const SizedBox(height: 24),
-                  const Divider(indent: 16, endIndent: 16),
+                  const Divider(indent: 16, endIndent: 16, thickness: 0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
