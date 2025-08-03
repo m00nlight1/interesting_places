@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interesting_places/assets/images/app_svg_icons.dart';
+import 'package:interesting_places/features/favorites/ui/screens/favorites_screen_builder.dart';
 import 'package:interesting_places/features/map/ui/screens/map_screen_builder.dart';
 import 'package:interesting_places/features/places/ui/screens/places_screen_builder.dart';
 import 'package:interesting_places/features/settings/ui/screens/settings_screen_builder.dart';
@@ -18,7 +19,7 @@ class _TabsScreenState extends State<TabsScreen> {
   final List<Widget> _pages = [
     const PlacesScreenBuilder(),
     const MapScreenBuilder(),
-    const Center(child: Text('Избранное (заглушка)')),
+    const FavoritesScreenBuilder(),
     const SettingsScreenBuilder(),
   ];
 
@@ -32,30 +33,38 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPictureWidget(AppSvgIcons.icList),
-            activeIcon: SvgPictureWidget(AppSvgIcons.icListFull),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPictureWidget(AppSvgIcons.icMap),
-            activeIcon: SvgPictureWidget(AppSvgIcons.icMapFull),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPictureWidget(AppSvgIcons.icHeart),
-            activeIcon: SvgPictureWidget(AppSvgIcons.icHeartFull),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPictureWidget(AppSvgIcons.icSettings),
-            activeIcon: SvgPictureWidget(AppSvgIcons.icSettingsFull),
-            label: '',
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Divider(height: 1, thickness: 0),
+          BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: _currentIndex,
+            onTap: _onTabTapped,
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPictureWidget(AppSvgIcons.icList),
+                activeIcon: SvgPictureWidget(AppSvgIcons.icListFull),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPictureWidget(AppSvgIcons.icMap),
+                activeIcon: SvgPictureWidget(AppSvgIcons.icMapFull),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPictureWidget(AppSvgIcons.icHeart),
+                activeIcon: SvgPictureWidget(AppSvgIcons.icHeartFull),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPictureWidget(AppSvgIcons.icSettings),
+                activeIcon: SvgPictureWidget(AppSvgIcons.icSettingsFull),
+                label: '',
+              ),
+            ],
           ),
         ],
       ),

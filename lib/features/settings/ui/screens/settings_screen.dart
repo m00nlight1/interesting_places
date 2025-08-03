@@ -18,6 +18,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           AppStrings.placesScreenBottomNavSettings,
           style: textTheme.subtitle,

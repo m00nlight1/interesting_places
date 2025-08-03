@@ -29,13 +29,14 @@ class PlacesScreen extends StatelessWidget {
         headerSliverBuilder:
             (_, __) => [
               SliverAppBar(
+                automaticallyImplyLeading: false,
+                centerTitle: true,
+                floating: true,
+                snap: true,
                 title: Text(
                   AppStrings.placesScreenAppBarTitle,
                   style: textTheme.subtitle,
                 ),
-                centerTitle: true,
-                floating: true,
-                snap: true,
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(72),
                   child: SearchInputWidget(
