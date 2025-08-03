@@ -43,6 +43,10 @@ abstract class AppStrings {
   /// Поиск
   static const searchHint = 'Поиск';
 
+  /// Избранное
+  static const deleteButton = 'Удалить';
+  static const emptyTitle = 'Пусто';
+
   /// Снэк-бары для действий с карточкой.
   static const cardTapSnackbar = 'Тап по карточке';
   static const likeTapSnackbar = 'Лайк для';

@@ -22,6 +22,7 @@ abstract class AppSvgIcons {
 
   /// Пустые страницы (результат не найден) и ошибки
   static const icNetworkException = 'assets/icons/error_delete.svg';
+  static const icFavoritesEmpty = 'assets/icons/go.svg';
 
   /// Карта
   static const icGeolocation = 'assets/icons/geolocation.svg';
@@ -31,4 +32,6 @@ abstract class AppSvgIcons {
   static const icInfo = 'assets/icons/info.svg';
   static const icSearch = 'assets/icons/search.svg';
   static const icClear = 'assets/icons/clear.svg';
+  static const icClose = 'assets/icons/close.svg';
+  static const icBucket = 'assets/icons/bucket.svg';
 }
