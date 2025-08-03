@@ -13,7 +13,9 @@ enum PlaceCardType { place, favorite }
 class PlaceCardWidget extends StatelessWidget {
   final PlaceEntity place;
   final VoidCallback onCardTap;
-  final VoidCallback onLikeTap;
+  final VoidCallback? onLikeTap;
+  final VoidCallback? onShareTap;
+  final VoidCallback? onRemoveTap;
   final bool isFavorite;
   final PlaceCardType cardType;
   final Color? backgroundColor;
@@ -22,7 +24,9 @@ class PlaceCardWidget extends StatelessWidget {
     super.key,
     required this.place,
     required this.onCardTap,
-    required this.onLikeTap,
+    this.onLikeTap,
+    this.onShareTap,
+    this.onRemoveTap,
     this.cardType = PlaceCardType.place,
     this.backgroundColor = AppColors.colorBackground,
     this.isFavorite = false,
@@ -117,12 +121,32 @@ class PlaceCardWidget extends StatelessWidget {
             Positioned(
               top: 8,
               right: 16,
-              child: IconActionButton(
-                onPressed: onLikeTap,
-                svgPath:
-                    isFavorite ? AppSvgIcons.icHeartFull : AppSvgIcons.icHeart,
-                color: isFavorite ? colorTheme.error : colorTheme.primary,
-              ),
+              child: switch (cardType) {
+                PlaceCardType.place => IconActionButton(
+                  onPressed: onLikeTap,
+                  svgPath:
+                      isFavorite
+                          ? AppSvgIcons.icHeartFull
+                          : AppSvgIcons.icHeart,
+                  color: isFavorite ? colorTheme.error : colorTheme.primary,
+                ),
+                PlaceCardType.favorite => Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconActionButton(
+                      onPressed: onShareTap,
+                      svgPath: AppSvgIcons.icShare,
+                      color: colorTheme.primary,
+                    ),
+                    const SizedBox(width: 16),
+                    IconActionButton(
+                      onPressed: onRemoveTap,
+                      svgPath: AppSvgIcons.icClose,
+                      color: colorTheme.primary,
+                    ),
+                  ],
+                ),
+              },
             ),
           ],
         ),
